@@ -37,17 +37,16 @@ M.config = function()
       width = 0.6,
       options = {
         signcolumn = "no", -- disable signcolumn
-        number = false, -- disable number column
+        number = true, -- disable number column
         relativenumber = false, -- disable relative numbers
       },
     },
     plugins = {
       gitsigns = { enabled = false }, -- disables git signs
       tmux = { enabled = not lvim.builtin.tmux_lualine },
-      twilight = { enabled = true },
+      twilight = { enabled = false},
       kitty = {
         enabled = false,
-        font = "+2", -- font size increment
       },
     },
     on_open = function()

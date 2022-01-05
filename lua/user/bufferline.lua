@@ -3,17 +3,9 @@ local M = {}
 M.config = function()
   local kind = require "user.lsp_kind"
   lvim.builtin.bufferline.highlights = {
-    background = { italic = true },
-    buffer_selected = { bold = true },
+    background = { italic = false},
+    buffer_selected = { bold = true},
   }
-  if lvim.builtin.time_based_themes then
-    lvim.builtin.bufferline.highlights.fill = {
-      bg = {
-        attribute = "bg",
-        highlight = "NormalNC",
-      },
-    }
-  end
   local g_ok, bufferline_groups = pcall(require, "bufferline.groups")
   if not g_ok then
     bufferline_groups = {

@@ -6,18 +6,18 @@ M.setup = function()
     return
   end
   org_mode.setup {
-    org_agenda_files = { "~/shared/orgs/**/*" },
-    org_default_notes_file = "~/shared/orgs/refile.org",
+    org_agenda_files = { "~/Essence/org/**/*" },
+    org_default_notes_file = "~/Essence/org/refile.org",
     org_agenda_templates = {
       T = {
         description = "Todo",
         template = "* TODO %?\n  DEADLINE: %T",
-        target = "~/shared/orgs/todos.org",
+        target = "~/Essence/org/todos.org",
       },
       w = {
         description = "Work todo",
         template = "* TODO %?\n  DEADLINE: %T",
-        target = "~/shared/orgs/work.org",
+        target = "~/Essence/org/work.org",
       },
     },
     mappings = {
@@ -30,3 +30,4 @@ M.setup = function()
 end
 
 return M
+

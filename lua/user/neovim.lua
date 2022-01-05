@@ -27,7 +27,7 @@ M.config = function()
   vim.g.ultest_summary_width = 30
   vim.g.ultest_deprecation_notice = 0
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
-  vim.opt.relativenumber = true
+  vim.opt.relativenumber = false
   vim.opt.diffopt = {
     "internal",
     "filler",
@@ -51,8 +51,13 @@ M.config = function()
     [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
   vim.wo.foldnestmax = 3
   vim.wo.foldminlines = 1
-  vim.opt.guifont = "FiraCode Nerd Font:h13"
-  vim.opt.cmdheight = 1
+  vim.g.nord_contrast = true
+  vim.g.nord_borders = false
+  vim.g.nord_disable_background = false
+  vim.g.nord_italic = false
+  vim.g.nord_uniform_diff_background = true
+  vim.g.nord_bold = false
+  vim.opt.cmdheight = 0
   vim.g.dashboard_enable_session = 0
   vim.g.dashboard_disable_statusline = 1
   vim.opt.pumblend = 10
@@ -160,7 +165,6 @@ M.config = function()
     -- Configure nvui here
     vim.cmd [[NvuiCmdFontFamily FiraCode Nerd Font]]
     vim.cmd [[set linespace=1]]
-    vim.cmd [[set guifont=FiraCode\ Nerd\ Font:h14]]
     vim.cmd [[NvuiPopupMenuDefaultIconFg white]]
     vim.cmd [[NvuiCmdBg #1e2125]]
     vim.cmd [[NvuiCmdFg #abb2bf]]

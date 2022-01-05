@@ -3,13 +3,13 @@ local M = {}
 M.catppuccin = function()
   local catppuccin = require "catppuccin"
   local opts = {
-    flavour = "mocha",
+    flavour = "macchiato",
     background = { light = "latte", dark = "mocha" },
     transparent_background = lvim.transparent_window,
     term_colors = false,
     styles = {
       comments = {},
-      keywords = { "italic" },
+      keywords = { "regular" },
     },
     compile = {
       enabled = true, -- NOTE: make sure to run `:CatppuccinCompile`

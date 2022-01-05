@@ -9,10 +9,57 @@ M.config = function()
     {
       "catppuccin/nvim",
       as = "catppuccin",
-      run = ":CatppuccinCompile",
       config = function()
-        require("user.theme").catppuccin()
-        vim.cmd [[colorscheme catppuccin-latte]]
+        require("catppuccin").setup {
+          flavour = "latte", -- latte, frappe, macchiato, mocha
+          background = { -- :h background
+            light = "latte",
+            dark = "mocha",
+          },
+          transparent_background = false,
+          term_colors = false,
+          dim_inactive = {
+            enabled = false,
+            shade = "dark",
+            percentage = 0.15,
+          },
+          no_italic = true, -- Force no italic
+          no_bold = false, -- Force no bold
+          styles = {
+            comments = { },
+            conditionals = { },
+            loops = {},
+            functions = {},
+            keywords = {},
+            strings = {},
+            variables = {},
+            numbers = {},
+            booleans = {},
+            properties = {},
+            types = {},
+            operators = {},
+          },
+          color_overrides = {},
+          custom_highlights = {},
+          integrations = {
+            cmp = true,
+            gitsigns = true,
+            nvimtree = true,
+            telescope = true,
+            notify = false,
+            mini = false,
+            -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+          },
+        }
+        vim.cmd[[colorscheme catppuccin-latte]]
+      end,
+    },
+    {
+      "shaunsingh/nord.nvim",
+      as = "nord",
+      config = function()
+        require "nord"
+        -- vim.cmd[[colorscheme nord]]
       end,
     },
     {
@@ -59,20 +106,11 @@ M.config = function()
       disable = lvim.builtin.motion_provider ~= "leap",
     },
     {
-      "phaazon/hop.nvim",
-      event = "BufRead",
-      config = function()
-        require("user.hop").config()
-      end,
-      disable = lvim.builtin.motion_provider ~= "hop",
-    },
-    {
       "simrat39/symbols-outline.nvim",
       config = function()
         require("user.symbols_outline").config()
       end,
       event = "BufReadPost",
-      disable = lvim.builtin.tag_provider ~= "symbols-outline",
     },
     {
       "tzachar/cmp-tabnine",
@@ -82,7 +120,7 @@ M.config = function()
         local tabnine = require "cmp_tabnine.config"
         tabnine:setup {
           max_lines = 1000,
-          max_num_results = 10,
+          max_num_results = 15,
           sort = true,
         }
       end,
