@@ -33,8 +33,8 @@ M.config = function()
   zen_mode.setup {
     window = {
       backdrop = 1,
-      height = 0.9, -- height of the Zen window
-      width = 0.6,
+      height = 1, -- height of the Zen window
+      width = 0.42,
       options = {
         signcolumn = "no", -- disable signcolumn
         number = true, -- disable number column
