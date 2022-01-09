@@ -7,10 +7,11 @@ M.config = function()
   end
   lvim.plugins = {
     {
-      "rose-pine/neovim",
-      as = "rose-pine",
+      "rebelot/kanagawa.nvim",
+      as = "kanagawa",
       config = function()
-        vim.cmd "colorscheme rose-pine"
+        require("kanagawa").setup()
+        vim.cmd "colorscheme kanagawa"
       end,
     },
     {
