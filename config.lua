@@ -2,7 +2,7 @@
 -- =========================================
 lvim.leader = " "
 -- lvim.colorscheme = "kanagawa" -- set to a custom theme
-lvim.colorscheme = "catpuccin-latte" -- set to a custom theme
+lvim.colorscheme = "catpuccin-mocha" -- set to a custom theme
 lvim.builtin.time_based_themes = false -- set false to use your own configured theme
 lvim.transparent_window = false -- enable/disable transparency
 lvim.debug = false
