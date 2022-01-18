@@ -78,6 +78,7 @@ function M.find_string()
     previewer = false,
     shorten_path = false,
     layout_strategy = "flex",
+    hidden = false,
     layout_config = {
       width = 0.9,
       height = 0.8,
@@ -85,6 +86,7 @@ function M.find_string()
       vertical = { preview_height = 0.75 },
     },
     file_ignore_patterns = {
+      ".*",
       "vendor/*",
       "node_modules",
       "%.jpg",

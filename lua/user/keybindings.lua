@@ -195,6 +195,7 @@ end
 M.config = function()
   -- Additional keybindings
   -- =========================================
+  lvim.keys.normal_mode["<leader>a"] = {"<cmd>tabnew<CR>",{noremap = true}}
   lvim.keys.normal_mode["<CR>"] = {
     "<cmd>lua require('user.neovim').maximize_current_split()<CR>",
     { noremap = true, silent = true, nowait = true },

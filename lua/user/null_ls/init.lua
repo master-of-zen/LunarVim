@@ -80,9 +80,9 @@ M.config = function()
     nls.builtins.diagnostics.markdownlint.with {
       filetypes = { "markdown" },
     },
-    nls.builtins.diagnostics.vale.with {
-      filetypes = { "markdown" },
-    },
+    -- nls.builtins.diagnostics.vale.with {
+      -- filetypes = { "markdown" },
+    -- },
     nls.builtins.diagnostics.revive.with {
       condition = function(utils)
         return utils.root_has_file "revive.toml"
