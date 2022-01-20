@@ -6,143 +6,101 @@ M.config = function()
     neoclip_req = {}
   end
   lvim.plugins = {
+
     {
-      "EdenEast/nightfox.nvim",
-      as = "nightfox",
+      "Shatur/neovim-ayu",
       config = function()
-        -- Default options
-        require("nightfox").setup {
-          options = {
-            -- Compiled file's destination location
-            compile_path = vim.fn.stdpath "cache" .. "/nightfox",
-            compile_file_suffix = "_compiled", -- Compiled file suffix
-            transparent = false, -- Disable setting background
-            terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-            dim_inactive = false, -- Non focused panes set to alternative background
-            module_default = true, -- Default enable value for modules
-            colorblind = {
-              enable = false, -- Enable colorblind support
-              simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
-              severity = {
-                protan = 0, -- Severity [0,1] for protan (red)
-                deutan = 0, -- Severity [0,1] for deutan (green)
-                tritan = 0, -- Severity [0,1] for tritan (blue)
-              },
-            },
-            styles = { -- Style to be applied to different syntax groups
-              comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
-              conditionals = "NONE",
-              constants = "NONE",
-              functions = "NONE",
-              keywords = "NONE",
-              numbers = "NONE",
-              operators = "NONE",
-              strings = "NONE",
-              types = "NONE",
-              variables = "NONE",
-            },
-            inverse = { -- Inverse highlight for different types
-              match_paren = false,
-              visual = false,
-              search = false,
-            },
-            modules = { -- List of various plugins and additional options
-              -- ...
-            },
-          },
-          palettes = {},
-          specs = {},
-          groups = {},
+        require("ayu").setup {
+          mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+          overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
         }
 
-        -- setup must be called before loading
-
-        vim.cmd "colorscheme nightfox"
-      end,
-    },
-    {
-      "ellisonleao/gruvbox.nvim",
-      config = function()
-        require("gruvbox").setup {
-          undercurl = true,
-          underline = true,
-          bold = true,
-          italic = false,
-          strikethrough = true,
-          invert_selection = false,
-          invert_signs = false,
-          invert_tabline = false,
-          invert_intend_guides = false,
-          inverse = true, -- invert background for search, diffs, statuslines and errors
-          contrast = "hard", -- can be "hard", "soft" or empty string
-          palette_overrides = {
-            --     fg0 = "#C2BE8F",
-            bg = "#1d2021",
-          },
-          overrides = {},
-          dim_inactive = false,
-          transparent_mode = false,
-        }
-        -- vim.cmd ""
-        -- vim.cmd "colorscheme gruvbox"
+        vim.cmd.colorscheme "ayu-dark"
       end,
     },
     -- {
-    --   "catppuccin/nvim",
-    --   as = "catppuccin",
+    --   "ellisonleao/gruvbox.nvim",
     --   config = function()
-    --     require("catppuccin").setup {
-    --       flavour = "mocha", -- latte, frappe, macchiato, mocha
-    --       background = { -- :h background
-    --         light = "latte",
-    --         dark = "mocha",
-    --       },
-    --       transparent_background = false,
-    --       show_end_of_buffer = false, -- show the '~' characters after the end of buffers
-    --       term_colors = false,
-    --       dim_inactive = {
-    --         enabled = false,
-    --         shade = "dark",
-    --         percentage = 0.15,
-    --       },
-    --       no_italic = false, -- Force no italic
-    --       no_bold = false, -- Force no bold
-    --       styles = {
-    --         comments = { "italic" },
-    --         conditionals = { "italic" },
-    --         loops = {},
-    --         functions = {},
-    --         keywords = {},
-    --         strings = {},
-    --         variables = {},
-    --         numbers = {},
-    --         booleans = {},
-    --         properties = {},
-    --         types = {},
-    --         operators = {},
-    --       },
-    --       color_overrides = {
-    --         mocha = {
-    --           base = "#000000",
-    --           mantle = "#000000",
-    --           crust = "#000000",
-    --         },
-    --       },
-    --       custom_highlights = {},
-    --       integrations = {
-    --         cmp = true,
-    --         gitsigns = true,
-    --         nvimtree = true,
-    --         telescope = true,
-    --         notify = false,
-    --         mini = false,
-    --         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-    --       },
+    --     require("gruvbox").setup {
+    --       undercurl = true,
+    --       underline = true,
+    --       bold = true,
+    --       italic = true,
+    --       strikethrough = true,
+    --       invert_selection = false,
+    --       invert_signs = false,
+    --       invert_tabline = false,
+    --       invert_intend_guides = false,
+    --       inverse = true, -- invert background for search, diffs, statuslines and errors
+    --       contrast = "hard", -- can be "hard", "soft" or empty string
+    --       -- palette_overrides = {
+    --       --     fg0 = "#C2BE8F",
+    --       --     bg0 = "#141518"
+    --       --   },
+    --       overrides = {},
+    --       dim_inactive = false,
+    --       transparent_mode = false,
     --     }
-
-    --     vim.cmd.colorscheme "catppuccin-mocha"
+    --     -- vim.cmd ""
+    --     -- vim.cmd "colorscheme gruvbox"
     --   end,
     -- },
+    {
+      "catppuccin/nvim",
+      as = "catppuccin",
+      config = function()
+        require("catppuccin").setup {
+          flavour = "mocha", -- latte, frappe, macchiato, mocha
+          background = { -- :h background
+            light = "latte",
+            dark = "mocha",
+          },
+          transparent_background = false,
+          show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+          term_colors = false,
+          dim_inactive = {
+            enabled = false,
+            shade = "dark",
+            percentage = 0.15,
+          },
+          no_italic = false, -- Force no italic
+          no_bold = false, -- Force no bold
+          styles = {
+            comments = { "italic" },
+            conditionals = { "italic" },
+            loops = {},
+            functions = {},
+            keywords = {},
+            strings = {},
+            variables = {},
+            numbers = {},
+            booleans = {},
+            properties = {},
+            types = {},
+            operators = {},
+          },
+          color_overrides = {
+            mocha = {
+              base = "#000000",
+              mantle = "#000000",
+              crust = "#000000",
+            },
+          },
+          custom_highlights = {},
+          integrations = {
+            cmp = true,
+            gitsigns = true,
+            nvimtree = true,
+            telescope = true,
+            notify = false,
+            mini = false,
+            -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+          },
+        }
+
+        -- vim.cmd.colorscheme "catppuccin-mocha"
+      end,
+    },
     {
       "ray-x/lsp_signature.nvim",
       config = function()
