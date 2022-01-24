@@ -8,14 +8,20 @@ M.config = function()
   lvim.plugins = {
 
     {
+      "EdenEast/nightfox.nvim",
+      config = function()
+        require("nightfox").setup {}
+        vim.cmd.colorscheme "carbonfox"
+      end,
+    },
+    {
       "Shatur/neovim-ayu",
       config = function()
         require("ayu").setup {
           mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
           overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
         }
-
-        vim.cmd.colorscheme "ayu-dark"
+        -- vim.cmd.colorscheme "ayu-dark"
       end,
     },
     -- {
@@ -50,7 +56,7 @@ M.config = function()
       as = "catppuccin",
       config = function()
         require("catppuccin").setup {
-          flavour = "mocha", -- latte, frappe, macchiato, mocha
+          flavour = "latte", -- latte, frappe, macchiato, mocha
           background = { -- :h background
             light = "latte",
             dark = "mocha",
@@ -98,7 +104,7 @@ M.config = function()
           },
         }
 
-        -- vim.cmd.colorscheme "catppuccin-mocha"
+        -- vim.cmd.colorscheme "catppuccin-latte"
       end,
     },
     {
