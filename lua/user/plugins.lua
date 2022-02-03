@@ -8,49 +8,36 @@ M.config = function()
   lvim.plugins = {
 
     {
-      "EdenEast/nightfox.nvim",
+      "ellisonleao/gruvbox.nvim",
       config = function()
-        require("nightfox").setup {}
-        vim.cmd.colorscheme "carbonfox"
-      end,
-    },
-    {
-      "Shatur/neovim-ayu",
-      config = function()
-        require("ayu").setup {
-          mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
-          overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
+        require("gruvbox").setup {
+          undercurl = true,
+          underline = true,
+          bold = true,
+          strikethrough = true,
+          invert_selection = false,
+          invert_signs = false,
+          invert_tabline = false,
+          invert_intend_guides = false,
+          inverse = true, -- invert background for search, diffs, statuslines and errors
+          italic = {
+            strings = false,
+            comments = false,
+            operators = false,
+            folds = false,
+          },
+          palette_overrides = {
+              -- fg0 = "#C2BE8F",
+              -- bg = "#141518"
+            },
+          overrides = {},
+          dim_inactive = false,
+          transparent_mode = false,
         }
-        -- vim.cmd.colorscheme "ayu-dark"
+        -- vim.cmd "colorscheme gruvbox"
       end,
     },
-    -- {
-    --   "ellisonleao/gruvbox.nvim",
-    --   config = function()
-    --     require("gruvbox").setup {
-    --       undercurl = true,
-    --       underline = true,
-    --       bold = true,
-    --       italic = true,
-    --       strikethrough = true,
-    --       invert_selection = false,
-    --       invert_signs = false,
-    --       invert_tabline = false,
-    --       invert_intend_guides = false,
-    --       inverse = true, -- invert background for search, diffs, statuslines and errors
-    --       contrast = "hard", -- can be "hard", "soft" or empty string
-    --       -- palette_overrides = {
-    --       --     fg0 = "#C2BE8F",
-    --       --     bg0 = "#141518"
-    --       --   },
-    --       overrides = {},
-    --       dim_inactive = false,
-    --       transparent_mode = false,
-    --     }
-    --     -- vim.cmd ""
-    --     -- vim.cmd "colorscheme gruvbox"
-    --   end,
-    -- },
+
     {
       "catppuccin/nvim",
       as = "catppuccin",
@@ -72,8 +59,8 @@ M.config = function()
           no_italic = false, -- Force no italic
           no_bold = false, -- Force no bold
           styles = {
-            comments = { "italic" },
-            conditionals = { "italic" },
+            comments = {},
+            conditionals = {},
             loops = {},
             functions = {},
             keywords = {},
@@ -85,13 +72,7 @@ M.config = function()
             types = {},
             operators = {},
           },
-          color_overrides = {
-            mocha = {
-              base = "#000000",
-              mantle = "#000000",
-              crust = "#000000",
-            },
-          },
+          color_overrides = {},
           custom_highlights = {},
           integrations = {
             cmp = true,
@@ -104,7 +85,35 @@ M.config = function()
           },
         }
 
+        -- setup must be called before loading
         -- vim.cmd.colorscheme "catppuccin-latte"
+      end,
+    },
+    {
+      "rose-pine/neovim",
+      as = "rose-pine",
+      config = function()
+        require("rose-pine").setup {
+          variant = "dawn",
+        }
+        -- vim.cmd.colorscheme "rose-pine"
+      end,
+    },
+    {
+      "EdenEast/nightfox.nvim",
+      config = function()
+        require("nightfox").setup {}
+        -- vim.cmd.colorscheme "nordfox"
+      end,
+    },
+    {
+      "Shatur/neovim-ayu",
+      config = function()
+        require("ayu").setup {
+          mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+          overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
+        }
+        vim.cmd.colorscheme "ayu-dark"
       end,
     },
     {
@@ -264,6 +273,7 @@ M.config = function()
       keys = { "go", "gC" },
       ft = { "org" },
       config = function()
+        require("orgmode").ts_setup()
         require("user.orgmode").setup()
       end,
       disable = not lvim.builtin.orgmode.active,
@@ -769,14 +779,6 @@ M.config = function()
       requires = { "nvim-treesitter/nvim-treesitter" },
       disable = not lvim.builtin.colored_args,
     },
-    -- TODO: set this up when https://github.com/neovim/neovim/pull/20130 is merged
-    -- {
-    --   "lvimuser/lsp-inlayhints.nvim",
-    --   branch = "anticonceal",
-    --   config = function()
-    --     require("lsp-inlayhints").setup()
-    --   end,
-    -- },
   }
 end
 

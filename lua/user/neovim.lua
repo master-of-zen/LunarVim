@@ -58,6 +58,7 @@ M.config = function()
   vim.g.nord_disable_background = false
   vim.g.nord_italic = false
   vim.g.nord_uniform_diff_background = true
+  vim.g.gruvbox_contrast = "hard"
   vim.g.nord_bold = false
   vim.opt.cmdheight = 0
   vim.g.dashboard_enable_session = 0
