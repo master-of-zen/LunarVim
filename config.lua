@@ -6,6 +6,7 @@ lvim.transparent_window = false -- enable/disable transparency
 lvim.debug = false
 vim.lsp.set_log_level "error"
 lvim.log.level = "warn"
+lvim.format_on_save = true
 lvim.builtin.format_on_save = true
 -- vim.o.conceallevel = 2 -- uncomment if you want to see concealed text
 require("user.neovim").config()
@@ -22,7 +23,7 @@ lvim.builtin.persistence = { active = false } -- change to false if you don't wa
 lvim.builtin.presence = { active = false } -- change to true if you want discord presence
 lvim.builtin.orgmode = { active = true } -- change to true if you want orgmode.nvim
 lvim.builtin.dap.active = false -- change this to enable/disable debugging
-lvim.builtin.fancy_statusline = { active = false} -- enable/disable fancy statusline
+lvim.builtin.fancy_statusline = { active = false } -- enable/disable fancy statusline
 lvim.builtin.fancy_wild_menu = { active = true } -- enable/disable cmp-cmdline
 lvim.builtin.fancy_diff = { active = true } -- enable/disable fancier git diff
 lvim.builtin.lua_dev = { active = true } -- change this to enable/disable folke/lua_dev

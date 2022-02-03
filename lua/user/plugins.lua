@@ -8,7 +8,29 @@ M.config = function()
   lvim.plugins = {
 
     {
+      "navarasu/onedark.nvim",
+      as = "onedark",
+      config = function()
+        require("onedark").setup {
+          toggle_style_key = "<leader>tt",
+          style = "darker",
+        }
+        require("onedark").load()
+        -- vim.cmd "colorscheme onedark"
+      end,
+    },
+    {
+      "rose-pine/neovim",
+      as = "rose-pine",
+      config = function()
+        require("rose-pine").setup {
+          -- vim.cmd "colorscheme rose-pine",
+        }
+      end,
+    },
+    {
       "ellisonleao/gruvbox.nvim",
+      as = "gruvbox",
       config = function()
         require("gruvbox").setup {
           undercurl = true,
@@ -18,6 +40,7 @@ M.config = function()
           invert_selection = false,
           invert_signs = false,
           invert_tabline = false,
+          contrast = "hard",
           invert_intend_guides = false,
           inverse = true, -- invert background for search, diffs, statuslines and errors
           italic = {
@@ -27,10 +50,8 @@ M.config = function()
             folds = false,
           },
           palette_overrides = {
-              -- fg0 = "#C2BE8F",
-              -- bg = "#141518"
-            },
-          overrides = {},
+            dark0_hard = "#1c1c1c",
+          },
           dim_inactive = false,
           transparent_mode = false,
         }
@@ -43,10 +64,10 @@ M.config = function()
       as = "catppuccin",
       config = function()
         require("catppuccin").setup {
-          flavour = "latte", -- latte, frappe, macchiato, mocha
+          flavour = "frappe", -- latte, frappe, macchiato, mocha
           background = { -- :h background
             light = "latte",
-            dark = "mocha",
+            dark = "frappe",
           },
           transparent_background = false,
           show_end_of_buffer = false, -- show the '~' characters after the end of buffers
@@ -86,7 +107,7 @@ M.config = function()
         }
 
         -- setup must be called before loading
-        -- vim.cmd.colorscheme "catppuccin-latte"
+        vim.cmd.colorscheme "catppuccin-frappe"
       end,
     },
     {
@@ -113,7 +134,7 @@ M.config = function()
           mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
           overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
         }
-        vim.cmd.colorscheme "ayu-dark"
+        -- vim.cmd.colorscheme "ayu-dark"
       end,
     },
     {
@@ -273,7 +294,6 @@ M.config = function()
       keys = { "go", "gC" },
       ft = { "org" },
       config = function()
-        require("orgmode").ts_setup()
         require("user.orgmode").setup()
       end,
       disable = not lvim.builtin.orgmode.active,

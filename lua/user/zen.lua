@@ -52,7 +52,7 @@ M.config = function()
     on_open = function()
       lvim.builtin.cmp.active = false
       vim.cmd [[
-          set foldlevel=10
+          set foldlevel=2
           lua require("user.zen").hide_diagnostics()
           IndentBlanklineDisable!
           ]]
@@ -63,7 +63,7 @@ M.config = function()
     on_close = function()
       lvim.builtin.cmp.active = true
       vim.cmd [[
-          set foldlevel=4
+          set foldlevel=2
           set foldmethod=expr
           set foldexpr=nvim_treesitter#foldexpr()
           lua require("user.zen").show_diagnostics()
