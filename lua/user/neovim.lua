@@ -24,10 +24,12 @@ M.config = function()
   for _, plugin in pairs(disabled_plugins) do
     vim.g["loaded_" .. plugin] = 1
   end
+  vim.o.background = "dark"
   vim.g.ultest_summary_width = 30
   vim.g.ultest_deprecation_notice = 0
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
   vim.opt.relativenumber = false
+  vim.opt.number = true
   vim.opt.diffopt = {
     "internal",
     "filler",
