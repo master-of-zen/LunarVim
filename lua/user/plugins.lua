@@ -55,14 +55,16 @@ M.config = function()
       vim.cmd.colorscheme "catppuccin-latte"
       end
     },
-    {
-      "rebelot/kanagawa.nvim",
-      as = "kanagawa",
-      config = function()
-        require("kanagawa").setup()
-        -- vim.cmd "colorscheme kanagawa"
-      end,
-    },
+    -- {
+    --   "navarasu/onedark.nvim",
+    --   config = function()
+    --     require("onedark").setup {
+    --       style = "darker",
+    --     }
+    --     require("onedark").load()
+    --   end,
+    -- },
+
     {
       "ray-x/lsp_signature.nvim",
       config = function()

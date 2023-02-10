@@ -1,8 +1,8 @@
 -- Neovim
 -- =========================================
 lvim.leader = " "
--- lvim.colorscheme = "kanagawa" -- set to a custom theme
-lvim.colorscheme = "catpuccin-latte" -- set to a custom theme
+-- lvim.colorscheme = "onedark" -- set to a custom theme
+lvim.colorscheme = "catppuccin-latte"
 lvim.builtin.time_based_themes = false -- set false to use your own configured theme
 lvim.transparent_window = false -- enable/disable transparency
 lvim.debug = false
@@ -24,7 +24,7 @@ lvim.builtin.persistence = { active = false } -- change to false if you don't wa
 lvim.builtin.presence = { active = false } -- change to true if you want discord presence
 lvim.builtin.orgmode = { active = true } -- change to true if you want orgmode.nvim
 lvim.builtin.dap.active = false -- change this to enable/disable debugging
-lvim.builtin.fancy_statusline = { active = true} -- enable/disable fancy statusline
+lvim.builtin.fancy_statusline = { active = false} -- enable/disable fancy statusline
 lvim.builtin.fancy_wild_menu = { active = true } -- enable/disable cmp-cmdline
 lvim.builtin.fancy_diff = { active = true } -- enable/disable fancier git diff
 lvim.builtin.lua_dev = { active = true } -- change this to enable/disable folke/lua_dev
